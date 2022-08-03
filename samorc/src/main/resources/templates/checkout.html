@@ -1,0 +1,104 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <style>
+         section{
+           
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+    </style>
+    
+    
+  </head>
+
+<section class="vh-120 bg-image">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3" style="background-color: rgba(0, 0, 0, 0.3); height: 100vh;">
+    <div class="container h-100" style=" opacity:.8!important; ">
+      <div class="row d-flex justify-content-center align-items-center h-100 ">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-8 m-5">
+              <h2 class="text-uppercase text-center mb-5">Checkout</h2>
+
+              <form action="#" th:action="@{/checkoutaction}" method="post" th:object="${checkout}">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <b><label>First Name</label></b>
+                        <div th:if="${receiver!=null}"> <div th:text="${receiver.firstName}"></div> </div>
+                       <div th:if="${donor!=null}"> <div th:text="${donor.firstName}"></div> </div>
+                        
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <b><label>Last Name</label></b>
+                        <div th:if="${receiver!=null}"> <div th:text="${receiver.lastName}"></div> </div>
+                       <div th:if="${donor!=null}"> <div th:text="${donor.lastName}"></div> </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <b><label>Email</label></b>
+                       <div th:if="${receiver!=null}"> <div th:text="${receiver.email}"></div> </div>
+                       <div th:if="${donor!=null}"> <div th:text="${donor.email}"></div> </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <b><label>Phone Number</label></b>
+                        <div th:if="${receiver!=null}"> <div th:text="${receiver.phoneNumber}"></div> </div>
+                       <div th:if="${donor!=null}"> <div th:text="${donor.phoneNumber}"></div> </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <b><label>Food type</label></b>
+                        <div th:if="${receiver!=null}"> <div th:text="${receiver.foodType}"></div> </div>
+                       <div th:if="${donor!=null}"> <div th:text="${donor.foodType}"></div> </div>
+                    </div>
+                 
+                    <div class="col-md-3 mb-3" ><b><label>Quantity</label></b><div></div></div>      
+                    <div class="col-md-3 mb-3" ><label></label>
+                      <div th:if="${receiver!=null}"> <div th:text="${receiver.quantity}"></div> </div>
+                       <div th:if="${donor!=null}"> <div th:text="${donor.quantity}"></div> </div>
+                    </div>  
+                   
+                </div>
+               
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <b><label>Address</label></b>
+                       <div th:if="${receiver!=null}"> <div th:text="${receiver.address}"></div> </div>
+                       <div th:if="${donor!=null}"> <div th:text="${donor.address}"></div> </div>
+                    </div>
+                   
+                </div>
+
+                <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                    <label class="form-check-label" for="form2Example3g">
+                      I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                    </label>
+                  </div>
+               
+                <div class="d-flex justify-content-center">
+                  <button type="submit"  class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Checkout</button>
+                </div>
+               
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</html>
